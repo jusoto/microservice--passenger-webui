@@ -119,13 +119,20 @@ input, textarea, button {
 				<table>
 					<c:forEach items="${drivers}" var="driver">
 						<tr>
-							<td>Driver Name:
+							<td>Driver Name: </td><td><c:out value="${driver.fname} ${driver.lname}" /></td>
+						</tr><tr>
+							<td>Driver Location: </td><td><c:out value="${driver.lastLocationLat},${driver.lastLocationLon}" /></td>
+						</tr>
+						<tr>
+							<td>
+							<table>
 							    <c:forEach var="car" items="${driver.cars}">
-									<c:out value="${driver.fname} ${driver.lname} - ${car.plate}" />
+							<tr><td>
+									<c:out value="${car.plate}" />
+							</td></tr>
 								</c:forEach>
+							</table>
 							</td>
-							<td>Driver Location: <c:out
-									value="${driver.lastLocationLat},${driver.lastLocationLon}" /></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -203,7 +210,7 @@ input, textarea, button {
 					}
 				</script>
 				<script
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARU2EByzzp_N6V-SYXW9U8n0yJQF2flxA&callback=initMap"
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-A_VJjmiAKM-xwZpv7RdxDKkV5hzMh4Y&callback=initMap"
 					async defer></script>
 
 

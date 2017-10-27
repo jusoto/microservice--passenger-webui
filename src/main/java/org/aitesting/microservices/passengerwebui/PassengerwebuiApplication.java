@@ -6,7 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class PassengerwebuiApplication extends SpringBootServletInitializer {
+//@EnableRedisHttpSession
+public class PassengerwebuiApplication extends /*WebSecurityConfigurerAdapter*/ SpringBootServletInitializer {
  
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -21,4 +22,10 @@ public class PassengerwebuiApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(PassengerwebuiApplication.class, args);
 	}
+
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//	    http.httpBasic().disable();
+//	    http.authorizeRequests().anyRequest().authenticated();
+//	}
 }

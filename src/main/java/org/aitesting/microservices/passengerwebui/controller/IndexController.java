@@ -35,7 +35,7 @@ public class IndexController {
 		// TODO: Request Matching username user to PassengerManagement API
 		RestTemplate restTemplate = new RestTemplate();
 		Passenger obj = restTemplate.getForObject(
-				"http://localhost:8083/api/passengers/login?username=" + username + "&password=" + password,
+				"http://localhost:8080/passengers/login?username=" + username + "&password=" + password,
 				Passenger.class);
 
 		if (obj != null && obj.isValid(username, password)) {
@@ -93,10 +93,10 @@ public class IndexController {
 		RestTemplate restTemplate = new RestTemplate();
 		
 		System.out.println("**************************** Create Trip from Trip API *****************************");
-		Trip createdTrip = restTemplate.postForObject("http://localhost:8081/api/trips/add", requestedTrip, Trip.class);
+		Trip createdTrip = restTemplate.postForObject("http://localhost:8080/trips/add", requestedTrip, Trip.class);
 		
 		System.out.println("**************************** Retrieve List of Drivers from Driver API *****************************");
-		List<Driver> drivers = (List<Driver>) restTemplate.getForObject("http://localhost:8082/api/drivers/nearlocation?latitude="+createdTrip.getOriginLocationLat()+"&longitude="+createdTrip.getOriginLocationLon(), List.class);
+		List<Driver> drivers = (List<Driver>) restTemplate.getForObject("http://localhost:8080/drivers/nearlocation?latitude="+createdTrip.getOriginLocationLat()+"&longitude="+createdTrip.getOriginLocationLon(), List.class);
 
 		Date date = new Date();
 		model.put("name", request.getSession().getAttribute("name"));
